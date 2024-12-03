@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://camera_rig.gd" id="1_un5vs"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7fq8g"]
+radius = 0.2
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j0qx7"]
 
@@ -22,15 +23,18 @@ use_collision = true
 size = Vector3(95, 0.001, 88)
 
 [node name="Player" parent="." instance=ExtResource("1_bglf6")]
-transform = Transform3D(0.246865, 0, 0, 0, 0.246865, 0, 0, 0, 0.246865, 1.00634, 1.50118, 11.659)
+transform = Transform3D(0.246865, 0, 0, 0, 0.246865, 0, 0, 0, 0.246865, 1.00634, -0.39882, 11.659)
 
 [node name="CameraRig" type="SpringArm3D" parent="." node_paths=PackedStringArray("pivot")]
-transform = Transform3D(0.246865, 0, 0, 0, 0.246865, 0, 0, 0, 0.246865, 1.00634, 1.50118, 11.659)
 shape = SubResource("SphereShape3D_7fq8g")
 script = ExtResource("1_un5vs")
 pivot = NodePath("../Player")
+offset = Vector3(0, 0.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
-transform = Transform3D(4.05068, -0.0282489, 0.0120296, 0.023923, 3.89863, 1.09957, -0.0192458, -1.09946, 3.89869, 0, 5.97517, 10.1145)
+transform = Transform3D(4.05068, -0.0282488, 0.0120297, 0.023923, 3.89863, 1.09956, -0.0192458, -1.09946, 3.89869, 0, 0, 0)
 environment = SubResource("Environment_klusr")
 fov = 116.806
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+use_collision = true
