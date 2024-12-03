@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bslrbw4hqtrhg"]
+
+[ext_resource type="Script" path="res://asset/moving_object/moving_object.gd" id="1_08pkg"]
+
+[sub_resource type="Curve3D" id="Curve3D_s1hk0"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.78147, -1.77039, 2.62161, 0, 0, 0, 0, 0, 0, -2.02344, -1.14824, 1.8202, 0, 0, 0, 0, 0, 0, 2.0757, -1.90598, 0.0525264, 0, 0, 0, 0, 0, 0, 1.95227, 0.848119, -1.59449, 0, 0, 0, 0, 0, 0, -2.18208, 1.00569, 0.566019),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Moving Object" type="Path3D"]
+transform = Transform3D(1, 0.000591494, -0.000368076, -0.000591373, 1, 0.000323212, 0.000368269, -0.000322992, 1, 0, 0, 0)
+curve = SubResource("Curve3D_s1hk0")
+script = ExtResource("1_08pkg")
+
+[node name="Add Object Here" type="PathFollow3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, -2.78147, -1.77039, 2.62161)
+rotation_mode = 0
+loop = false
+tilt_enabled = false

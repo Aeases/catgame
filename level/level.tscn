@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf8ik17xqkwnt"]
+
+[ext_resource type="PackedScene" uid="uid://duvr6garo4vw" path="res://asset/player/player.tscn" id="1_gs31c"]
+[ext_resource type="Script" path="res://camera_rig.gd" id="2_g5pj7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7fq8g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j0qx7"]
+
+[sub_resource type="Sky" id="Sky_hkcmi"]
+sky_material = SubResource("ProceduralSkyMaterial_j0qx7")
+
+[sub_resource type="Environment" id="Environment_klusr"]
+background_mode = 2
+sky = SubResource("Sky_hkcmi")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -0.39502, -0.4995, 3.81604)
+use_collision = true
+size = Vector3(95, 0.001, 88)
+
+[node name="Player" parent="." instance=ExtResource("1_gs31c")]
+transform = Transform3D(0.246865, 0, 0, 0, 0.246865, 0, 0, 0, 0.246865, 1.00634, 1.50118, 11.659)
+
+[node name="CameraRig" type="SpringArm3D" parent="." node_paths=PackedStringArray("pivot")]
+transform = Transform3D(0.246865, 0, 0, 0, 0.246865, 0, 0, 0, 0.246865, 1.00634, 1.50118, 11.659)
+shape = SubResource("SphereShape3D_7fq8g")
+script = ExtResource("2_g5pj7")
+pivot = NodePath("../Player")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(4.05068, -0.0282489, 0.0120296, 0.023923, 3.89863, 1.09957, -0.0192458, -1.09946, 3.89869, 0, 5.97517, 10.1145)
+environment = SubResource("Environment_klusr")
+fov = 116.806

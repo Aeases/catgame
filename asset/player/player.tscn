@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://duvr6garo4vw"]
+
+[ext_resource type="Script" path="res://asset/player/player.gd" id="1_tdf1v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fabgw"]
+
+[sub_resource type="FontFile" id="FontFile_fivmd"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+
+[sub_resource type="TextMesh" id="TextMesh_51cc5"]
+text = "amog us"
+font = SubResource("FontFile_fivmd")
+font_size = 50
+uppercase = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4tta5"]
+radius = 1.24076
+height = 2.72957
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(0.246865, 0, 0, 0, 0.246865, 0, 0, 0, 0.246865, 0, 0, 0)
+script = ExtResource("1_tdf1v")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_fabgw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TextMesh_51cc5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_4tta5")
