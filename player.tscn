@@ -25,9 +25,9 @@ font = SubResource("FontFile_fivmd")
 font_size = 50
 uppercase = true
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4tta5"]
-radius = 1.24076
-height = 2.72957
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3my4o"]
+height = 0.541385
+radius = 1.14604
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(0.246865, 0, 0, 0, 0.246865, 0, 0, 0, 0.246865, 0, 0, 0)
@@ -41,4 +41,4 @@ mesh = SubResource("BoxMesh_fabgw")
 mesh = SubResource("TextMesh_51cc5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_4tta5")
+shape = SubResource("CylinderShape3D_3my4o")
